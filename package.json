@@ -1,9 +1,12 @@
 {
   "name": "keyscanner",
   "version": "1.0.1",
-  "main": "./index.js",
+  "main": "./build/index.min.js",
   "description": "library that allows reading input events from a barcode machine or other similar devices, and distinguish them from normal user keystrokes",
   "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/namshi/keyscannerjs.git"
@@ -14,10 +17,25 @@
     "barcode scanner",
     "key scanner"
   ],
+  "files": [
+    "README.md",
+    "build/index.min.js"
+  ],
   "bugs": {
     "url": "https://github.com/namshi/keyscannerjs/issues"
   },
   "homepage": "https://github.com/namshi/keyscannerjs",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.24.0",
+    "babelrc-rollup": "^3.0.0",
+    "browser-env": "^2.0.29",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1"
+  }
 }
