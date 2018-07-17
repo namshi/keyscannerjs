@@ -1,6 +1,6 @@
 {
   "name": "keyscanner",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "./index.js",
   "description": "library that allows reading input events from a barcode machine or other similar devices, and distinguish them from normal user keystrokes",
   "license": "MIT",
