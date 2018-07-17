@@ -1,6 +1,6 @@
 <h1 width="100%"  align="middle">KeyScanner</h1>
 
-<img src="https://raw.githubusercontent.com/namshi/keyscannerjs/master/scanner.svg" height="150" width="100%" align="middle"/>
+<img src="https://cdn.rawgit.com/namshi/keyscannerjs/master/scanner.svg" height="150" width="100%" align="middle"/>
 
 ## Overview
 KeyScanner is a library that allows reading input events from a barcode machine or other similar devices, and distinguish them from normal user keystrokes. 
