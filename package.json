@@ -1,0 +1,26 @@
+{
+  "name": "keyscanner",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "description": "library that allows reading input events from a barcode machine or other similar devices, and distinguish them from normal user keystrokes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namshi/keyscannerjs.git"
+  },
+  "keywords": [
+    "barcode",
+    "scanner",
+    "barcode scanner",
+    "key scanner"
+  ],
+  "files": [
+    "README.md"
+  ],
+  "bugs": {
+    "url": "https://github.com/namshi/keyscannerjs/issues"
+  },
+  "homepage": "https://github.com/namshi/keyscannerjs",
+  "dependencies": {},
+  "devDependencies": {}
+}
