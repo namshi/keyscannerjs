@@ -2,9 +2,11 @@
   "name": "keyscanner",
   "version": "1.0.2",
   "main": "./build/index.min.js",
-  "description": "library that allows reading input events from a barcode machine or other similar devices, and distinguish them from normal user keystrokes",
+  "description": "A library to detect automated keyboard events from external devices (such as a barcode scanner) and differentiates between human keystroke inputs with a high level of accuracy. This reader software, hence allows obtaining barcode information, without the user having to focus the cursor on a textfield.",
   "license": "MIT",
   "scripts": {
+    "format:fix": "pretty-quick --staged",
+    "precommit": "npm run format:fix",
     "build": "rollup -c"
   },
   "repository": {
@@ -35,6 +37,9 @@
     "babel-register": "^6.24.0",
     "babelrc-rollup": "^3.0.0",
     "browser-env": "^2.0.29",
+    "husky": "^0.14.3",
+    "prettier": "^1.13.7",
+    "pretty-quick": "^1.6.0",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1"
   }
