@@ -33,7 +33,7 @@ export default class keyscanner {
   };
 
   logInfo = (key, timeStamp) => {
-    if (key !== 'Shift') {
+    if (!['Shift','Enter'].includes(key)) {
       this.timeStampBuffer.push(timeStamp);
       this.keyStrokeBuffer.push(key);
     }
@@ -64,27 +64,21 @@ export default class keyscanner {
   }
 
   fetchBarcodeBuffer() {
-    this.keyStrokeBuffer.pop();
     return this.keyStrokeBuffer.join('');
   }
 
   isBarcodeMachine() {
     const bufferLength = this.timeStampBuffer.length - 1;
-    let counter = 0,
-      lastHitKeyEnter = false;
+    let counter = 0;
     this.timeStampBuffer.forEach((timestamp, index) => {
-      if (index < bufferLength) {
+      if (index <= bufferLength) {
         let diff = this.timeDifference(timestamp, this.timeStampBuffer[index + 1]);
         if (diff < this.BARCODE_THRESHOLD) {
           counter = counter + 1;
         }
-      } else {
-        if (this.keyStrokeBuffer[index] === 'Enter') {
-          lastHitKeyEnter = true;
-        }
       }
     });
     const achievedPercentage = (counter * 100) / bufferLength;
-    return achievedPercentage > this.HUMAN_MACHINE_SPEED_THRESHOLD_PERCENTAGE && lastHitKeyEnter;
+    return achievedPercentage > this.HUMAN_MACHINE_SPEED_THRESHOLD_PERCENTAGE;
   }
 }
