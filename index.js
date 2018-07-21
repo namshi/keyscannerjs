@@ -70,18 +70,18 @@ export default class keyscanner {
   }
 
   isBarcodeMachine() {
-    const bufferLength = this.timeStampBuffer.length - 1;
-    let counter = 0;
+    const bufferLength = this.timeStampBuffer.length;
+    let counter = 1;
     this.timeStampBuffer.forEach((timestamp, index) => {
-      if (index <= bufferLength) {
+      if (index < bufferLength - 1) {
         let diff = this.timeDifference(timestamp, this.timeStampBuffer[index + 1]);
-        if (diff < this.BARCODE_THRESHOLD) {
+        if (diff <= this.BARCODE_THRESHOLD) {
           counter = counter + 1;
         }
       }
     });
-    const achievedPercentage = (counter * 100) / bufferLength;
+    const achievedPercentage = (bufferLength >= this.MINIMUM_NO_CHARS)?(counter * 100) / bufferLength:0;
     return ((achievedPercentage > this.HUMAN_MACHINE_SPEED_THRESHOLD_PERCENTAGE) 
-    && (counter + 1 >= this.MINIMUM_NO_CHARS));
+    && (bufferLength >= this.MINIMUM_NO_CHARS));
   }
 }
