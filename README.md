@@ -35,11 +35,14 @@ keyScanHandle.stop();
 ```js
     const config = {
         overall_percentage : 80,
-        key_stroke_speed_ms: 0.017 
+        key_stroke_speed_ms: 0.017,
+        minimum_no_chars: 5
     }
     const keyScanHandle = new keyscanner(myFuncOnScan, config);
 ```
 | Property | Description|
 |:---- |:---- |
-| overall_percentage      | The Overall percentage 1 - 100, at which scanner input passes the speed threshold mentioned in key_stroke_speed_ms|
-| key_stroke_speed_ms     | The speed in milli-seconds the scanner sends alphabets it scans. |
+| overall_percentage      | The Overall percentage 1 - 100, at which scanner input passes the speed threshold mentioned in key_stroke_speed_ms.
+(default 85, meaning 85% of the character input must be faster than the speed threshold mentioned in key_stroke_speed_ms)|
+| key_stroke_speed_ms     | The speed in milli-seconds the scanner sends alphabets it scans. (default: 0.017)|
+| minimum_no_chars | The minimum number of characters that a barcode should contain, inorder to get notified (default 4). Hence any inputs containing less than the value specified is ignored by keyscanner. |
