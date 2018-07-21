@@ -8,7 +8,8 @@ the user having to focus the cursor on a textfield.
 
 const DEFAULT_CONFIG = {
   overall_percentage: 85,
-  key_stroke_speed_ms: 0.017
+  key_stroke_speed_ms: 0.017,
+  minimum_no_chars: 4
 };
 export default class keyscanner {
   constructor(callback, config = DEFAULT_CONFIG) {
@@ -17,7 +18,8 @@ export default class keyscanner {
     this.initListenHandler();
     this.BARCODE_THRESHOLD = config.key_stroke_speed_ms || DEFAULT_CONFIG.key_stroke_speed_ms;
     this.HUMAN_MACHINE_SPEED_THRESHOLD_PERCENTAGE =
-      config.overall_percentage || DEFAULT_CONFIG.config.overall_percentage;
+      config.overall_percentage || DEFAULT_CONFIG.overall_percentage;
+    this.MINIMUM_NO_CHARS = config.minimum_no_chars || DEFAULT_CONFIG.minimum_no_chars;
     return {
       stop: this.stop
     };
@@ -79,6 +81,7 @@ export default class keyscanner {
       }
     });
     const achievedPercentage = (counter * 100) / bufferLength;
-    return achievedPercentage > this.HUMAN_MACHINE_SPEED_THRESHOLD_PERCENTAGE;
+    return ((achievedPercentage > this.HUMAN_MACHINE_SPEED_THRESHOLD_PERCENTAGE) 
+    && (counter + 1 >= this.MINIMUM_NO_CHARS));
   }
 }
