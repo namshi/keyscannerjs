@@ -1,6 +1,6 @@
 {
   "name": "keyscanner",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "./build/index.min.js",
   "description": "A library to detect automated keyboard events from external devices (such as a barcode scanner) and differentiates between human keystroke inputs with a high level of accuracy. This reader software, hence allows obtaining barcode information, without the user having to focus the cursor on a textfield.",
   "license": "MIT",
