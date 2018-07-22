@@ -17,7 +17,9 @@
     "barcode",
     "scanner",
     "barcode scanner",
-    "key scanner"
+    "key scanner",
+    "mobile scanner",
+    "mobile barcode scanner"
   ],
   "files": [
     "README.md",
